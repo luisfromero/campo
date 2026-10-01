@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Campo de regatas ART</string>
+    <string name="title_activity_maps">Asistente del campo de regatas</string>
+    <string name="title_activity_maps2">Campo de regatas</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="action_share">Compartir</string>
+    <string name="action_exit">Salir</string>
+    <string name="action_reiniciar">Reiniciar</string>
+    <string name="mqtt">Permitir boyas remotas</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="invertir1">Intercambia boyas de salida</string>
+    <string name="invertir2">Intercambia boyas de ciaboga</string>
+    <string name="invertir3">Intercambia salida y ciaboga</string>
+    <string name="informar">Generar informe</string>
+    <string name="action_brujula">Brújula</string>
+    <string name="title_activity_brujula">BrujulaActivity</string>
+    <string name="backup">Guardar estado</string>
+    <string name="restore">Restaurar estado</string>
+    <string name="boton1">Fijar boya 5</string>
+    <string name="boton2">Fijar boya 1</string>
+    <string name="boton3">Fijar ciaboga 5</string>
+    <string name="boton4">Fijar ciaboga 1</string>
+    <string name="grabando">Grabando...</string>
+    <string name="precisi_n_gps">"Precisión GPS: "</string>
+    <string name="precisi_n_rtk">"Precisión RTK: "</string>
+    <string name="informe_copiado_al_portapapeles">Informe copiado al portapapeles:</string>
+    <string name="recordatorio">Recuerda: Puedes bloquear la posición de una boya clicando la distancia a dicha boya</string>
+    <string name="no_girar_pantalla">No girar pantalla</string>
+    <string name="ancla">ancla</string>
+</resources>

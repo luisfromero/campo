@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:background="#DDDDFF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="4dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/textOverlay1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/seekBar"
+        tools:context=".MapsActivity" />
+
+    <ImageButton
+        android:id="@+id/btnBuscarAnclas"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_anchor"
+        android:padding="12dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="@string/ancla"
+        app:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/map" />
+
+
+    <TextView
+        android:id="@+id/textOverlay1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#A0DDDDFF"
+        android:text="0 m."
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@id/button1"
+        app:layout_constraintEnd_toStartOf="@+id/checkboxLock1"
+        app:layout_constraintStart_toEndOf="@id/textOverlay2" />
+
+    <CheckBox
+        android:id="@+id/checkboxLock1"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:button="@null"
+        android:background="@drawable/sl_lock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textOverlay1"
+        app:layout_constraintBottom_toBottomOf="@id/textOverlay1" />
+
+    <CheckBox
+        android:id="@+id/checkboxLock2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:button="@null"
+        android:background="@drawable/sl_lock"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textOverlay2"
+        app:layout_constraintBottom_toBottomOf="@id/textOverlay2" />
+
+    <TextView
+        android:id="@+id/textOverlay2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#A0DDDDFF"
+        android:text="0 m."
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/textOverlay1"
+        app:layout_constraintStart_toEndOf="@id/checkboxLock2" />
+
+    <TextView
+        android:id="@+id/textOverlay3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#A0DDDDFF"
+        android:text="0 m."
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/checkboxLock3"
+        app:layout_constraintTop_toBottomOf="@id/button3" />
+
+    <CheckBox
+        android:id="@+id/checkboxLock3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:button="@null"
+        android:background="@drawable/sl_lock"
+        app:layout_constraintEnd_toEndOf="@id/button3"
+        app:layout_constraintTop_toTopOf="@id/textOverlay3"
+        app:layout_constraintBottom_toBottomOf="@id/textOverlay3" />
+
+    <CheckBox
+        android:id="@+id/checkboxLock4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:button="@null"
+        android:background="@drawable/sl_lock"
+        app:layout_constraintStart_toStartOf="@id/button4"
+        app:layout_constraintTop_toTopOf="@id/textOverlay4"
+        app:layout_constraintBottom_toBottomOf="@id/textOverlay4" />
+
+    <TextView
+        android:id="@+id/textOverlay4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#A0DDDDFF"
+        android:text="0 m."
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@id/checkboxLock4"
+        app:layout_constraintTop_toBottomOf="@id/button4" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/boton4"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <Button
+        android:id="@+id/centrar"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:layout_margin="3dp"
+        android:minWidth="10dp"
+        android:minHeight="14dp"
+        android:text="Centrar"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/textOverlay2"
+        app:layout_constraintStart_toStartOf="@id/constraintLayout" />
+
+    <Button
+        android:id="@+id/validar"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:textSize="12dp"
+        android:text="validar"
+        android:layout_margin="5dp"
+        android:minHeight="10dp"
+        android:minWidth="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/textOverlay1"
+        app:layout_constraintEnd_toEndOf="@id/constraintLayout" />
+
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/boton3"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="@id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/boton1"
+        android:textSize="16dp"
+        android:translationZ="10dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/editTextText2"
+        app:layout_constraintEnd_toEndOf="@id/constraintLayout" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/boton2"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextText2"
+        app:layout_constraintStart_toStartOf="@id/constraintLayout" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="#A0DDDDFF"
+        android:max="380"
+        android:progress="350"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextText" />
+
+    <TextView
+        android:longClickable="false"
+        android:clickable="false"
+        android:id="@+id/editTextText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#A0DDDDFF"
+        android:textColor="#FF000000"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Distancia ideal: 350m."
+        android:textAlignment="center"
+        android:textSize="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/textOverlay3"
+        app:layout_constraintStart_toEndOf="@+id/textOverlay4"
+        app:layout_constraintTop_toBottomOf="@id/textOverlay3" />
+
+    <CheckBox
+        android:id="@+id/checkboxLockDistance"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:button="@null"
+        android:background="@drawable/sl_lock"
+        app:layout_constraintStart_toEndOf="@id/editTextText"
+        app:layout_constraintTop_toTopOf="@id/editTextText"
+        app:layout_constraintBottom_toBottomOf="@id/editTextText" />
+
+    <TextView
+        android:longClickable="false"
+        android:clickable="false"
+        android:id="@+id/editTextText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#A0DDDDFF"
+        android:inputType="text"
+        android:text="©IpeRomero 2023"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="13dp"
+        app:layout_constraintBottom_toBottomOf="@id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="@+id/button1"
+        app:layout_constraintStart_toStartOf="@+id/button2" />
+
+    <TextView
+        android:longClickable="false"
+        android:clickable="false"
+        android:id="@+id/precision"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#A0DDDDFF"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:inputType="textMultiLine"
+        android:textAlignment="center"
+        android:textColor="#FFFF0000"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/seekBar" />
+
+    <TextView
+        android:longClickable="false"
+        android:clickable="false"
+        android:id="@+id/sesgo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#A0DDDDFF"
+        android:textAlignment="center"
+        android:textSize="14dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/centrar"
+        app:layout_constraintEnd_toStartOf="@id/button1"
+        app:layout_constraintStart_toEndOf="@id/centrar"
+        app:layout_constraintTop_toTopOf="@id/centrar" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

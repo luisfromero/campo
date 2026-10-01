@@ -1,0 +1,137 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'org.jetbrains.kotlin.plugin.compose'
+}
+
+// Credenciales y claves sensibles: se leen de local.properties (no versionado)
+// para no dejar contraseñas ni claves API en el repositorio.
+def localProps = new Properties()
+def localPropsFile = rootProject.file('local.properties')
+if (localPropsFile.exists()) {
+    localProps.load(new FileInputStream(localPropsFile))
+}
+def ntripHost = localProps.getProperty('ntrip.host', '')
+def ntripPort = localProps.getProperty('ntrip.port', '2101')
+def ntripMountpoint = localProps.getProperty('ntrip.mountpoint', '')
+def ntripUser = localProps.getProperty('ntrip.user', '')
+def ntripPassword = localProps.getProperty('ntrip.password', '')
+def mapsApiKey = localProps.getProperty('MAPS_API_KEY', '')
+def keystoreStorePassword = localProps.getProperty('KEYSTORE_STORE_PASSWORD', '')
+def keystoreKeyPassword = localProps.getProperty('KEYSTORE_KEY_PASSWORD', '')
+def mqttHost = localProps.getProperty('mqtt.host', '')
+def mqttUser = localProps.getProperty('mqtt.user', '')
+def mqttPassword = localProps.getProperty('mqtt.password', '')
+
+android {
+    signingConfigs {
+        debug {
+            storeFile file('D:\\datos\\noctiluca\\noctilucakeystore.jks')
+            keyAlias 'ClaveAppNoctiluca'
+            storePassword keystoreStorePassword
+            keyPassword keystoreKeyPassword
+        }
+    }
+    namespace 'com.helioserver.campo'
+    compileSdk 37
+    ndkVersion "25.2.9519653"
+    defaultConfig {
+        applicationId "com.helioserver.campo"
+        minSdk 26
+        targetSdk 37
+        versionCode 23
+        versionName '2.0 <ciaboga>'
+        manifestPlaceholders = [MAPS_API_KEY: mapsApiKey]
+        //ndk {
+        //    debugSymbolLevel 'FULL'
+        //}
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+        buildConfigField "String", "NTRIP_HOST", "\"${ntripHost}\""
+        buildConfigField "int", "NTRIP_PORT", "${ntripPort}"
+        buildConfigField "String", "NTRIP_MOUNTPOINT", "\"${ntripMountpoint}\""
+        buildConfigField "String", "NTRIP_USER", "\"${ntripUser}\""
+        buildConfigField "String", "NTRIP_PASSWORD", "\"${ntripPassword}\""
+        buildConfigField "String", "MQTT_HOST", "\"${mqttHost}\""
+        buildConfigField "String", "MQTT_USER", "\"${mqttUser}\""
+        buildConfigField "String", "MQTT_PASSWORD", "\"${mqttPassword}\""
+    }
+    kotlin {
+        jvmToolchain(21)
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+            ndk {
+                debugSymbolLevel 'FULL'
+                //debugSymbolLevel 'SYMBOL_TABLE '
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
+    kotlinOptions {
+        //jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+        compose true
+        buildConfig true
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+
+
+dependencies {
+    implementation 'com.google.maps.android:android-maps-utils:4.3.0'
+    implementation 'androidx.core:core-ktx:1.18.0'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'com.google.android.material:material:1.14.0'
+    implementation 'com.google.android.gms:play-services-maps:20.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
+    implementation 'com.google.android.gms:play-services-location:21.3.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.10.0'
+    implementation 'androidx.activity:activity-compose:1.13.0'
+    implementation platform('androidx.compose:compose-bom:2026.05.00')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.7.0'
+    implementation 'androidx.fragment:fragment-ktx:1.8.9'
+    implementation 'androidx.activity:activity-ktx:1.13.0'
+    androidTestImplementation platform('androidx.compose:compose-bom:2026.05.00')
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+    //implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.android.volley:volley:1.2.1'
+
+
+    // Esta es para la parte que escucha sin la app arrancada
+    //implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+    implementation 'com.github.hannesa2:paho.mqtt.android:4.4.1'
+
+    // Comunicación USB Serial con la placa GNSS Ardusimple RTK2B (u-blox ZED-F9P)
+    implementation 'com.github.mik3y:usb-serial-for-android:3.11.0'
+
+}
+

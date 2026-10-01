@@ -1,0 +1,58 @@
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- action button for search -->
+
+    <item
+        android:id="@+id/menu_brujula"
+        android:title="@string/action_brujula"
+        />
+    <item android:id="@+id/menu_itemInformar"
+        android:title="@string/informar"
+        />
+    <item
+        android:id="@+id/menu_mqtt"
+        android:checkable="true"
+        android:checked="false"
+        android:title="@string/mqtt" />
+    <item android:id="@+id/menu_itemInvertir1"
+        android:title="@string/invertir1"
+        />
+    <item android:id="@+id/menu_itemInvertir2"
+        android:title="@string/invertir2"
+        />
+    <item android:id="@+id/menu_itemInvertir3"
+        android:title="@string/invertir3"
+        />
+    <item
+        android:id="@+id/menu_backup"
+        android:title="@string/backup"
+        />
+
+    <item
+        android:id="@+id/menu_restore"
+        android:title="@string/restore"
+        />
+
+    <!-- NUEVO ITEM PARA BLOQUEAR ROTACIÓN -->
+    <item
+        android:id="@+id/menu_no_girar_pantalla"
+        android:title="@string/no_girar_pantalla"
+        android:checkable="true"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_item1"
+        android:title="@string/ayuda"
+        />
+
+    <item
+        android:id="@+id/menu_item0"
+        android:title="@string/action_reiniciar"
+        />
+    <item
+        android:id="@+id/menu_item2"
+        android:title="@string/action_exit"
+        />
+
+    <!-- Puedes agregar más elementos de menú aquí -->
+</menu>

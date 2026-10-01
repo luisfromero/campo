@@ -1,0 +1,17 @@
+*.iml
+.gradle
+/local.properties
+/.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Archivos pesados y binarios de compilación
+*.zip
+*.aab
+*.apk
+*.mp4
+*.webm

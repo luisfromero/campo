@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="4dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/seekBar"
+        tools:context=".MapsActivity"
+        />
+
+    <ImageButton
+        android:id="@+id/btnBuscarAnclas"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_anchor"
+        android:padding="12dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="@string/ancla"
+        app:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/map" />
+
+
+    <Button
+        android:id="@+id/centrar"
+        android:layout_width="133dp"
+        android:layout_height="48dp"
+        android:layout_margin="3dp"
+        android:minWidth="100dp"
+        android:minHeight="30dp"
+        android:text="Centrar"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/textOverlay2"
+        app:layout_constraintStart_toStartOf="@id/constraintLayout" />
+
+    <Button
+        android:id="@+id/validar"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:textSize="12dp"
+        android:text="validar"
+        android:layout_margin="5dp"
+        android:minHeight="10dp"
+        android:minWidth="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/textOverlay1"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="577dp"
+        app:layout_constraintEnd_toEndOf="@id/constraintLayout" />
+
+
+
+    <TextView
+        android:id="@+id/textOverlay1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#A0FFFFFF"
+        android:textAlignment="center"
+        android:text="0 m."
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/checkboxLock1"
+        app:layout_constraintStart_toEndOf="@id/textOverlay2"
+        app:layout_constraintTop_toTopOf="@id/button1"
+        app:layout_constraintBottom_toBottomOf="@id/button1" />
+
+    <CheckBox
+        android:id="@+id/checkboxLock1"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:button="@null"
+        android:background="@drawable/sl_lock"
+        app:layout_constraintEnd_toStartOf="@id/button1"
+        app:layout_constraintTop_toTopOf="@id/textOverlay1"
+        app:layout_constraintBottom_toBottomOf="@id/textOverlay1" />
+
+    <CheckBox
+        android:id="@+id/checkboxLock2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:button="@null"
+        android:background="@drawable/sl_lock"
+        app:layout_constraintStart_toEndOf="@id/button2"
+        app:layout_constraintTop_toTopOf="@id/textOverlay2"
+        app:layout_constraintBottom_toBottomOf="@id/textOverlay2" />
+
+    <TextView
+        android:id="@+id/textOverlay2"
+        android:textAlignment="center"
+        android:text="0 m."
+        android:background="#A0FFFFFF"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        app:layout_constraintTop_toTopOf="@id/button2"
+        app:layout_constraintStart_toEndOf="@id/checkboxLock2"
+        app:layout_constraintEnd_toStartOf="@id/textOverlay1"
+        app:layout_constraintBottom_toBottomOf="@id/button2" />
+    <TextView
+        android:id="@+id/textOverlay3"
+        android:background="#A0FFFFFF"
+        android:textAlignment="center"
+        android:text="0 m."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toStartOf="@+id/checkboxLock3"
+        app:layout_constraintBottom_toBottomOf="@id/button3"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <CheckBox
+        android:id="@+id/checkboxLock3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:button="@null"
+        android:background="@drawable/sl_lock"
+        app:layout_constraintEnd_toStartOf="@id/button3"
+        app:layout_constraintTop_toTopOf="@id/textOverlay3"
+        app:layout_constraintBottom_toBottomOf="@id/textOverlay3" />
+
+    <CheckBox
+        android:id="@+id/checkboxLock4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:button="@null"
+        android:background="@drawable/sl_lock"
+        app:layout_constraintStart_toEndOf="@id/button4"
+        app:layout_constraintTop_toTopOf="@id/textOverlay4"
+        app:layout_constraintBottom_toBottomOf="@id/textOverlay4" />
+
+    <TextView
+        android:id="@+id/textOverlay4"
+        android:textAlignment="center"
+        android:text="0 m."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:background="#A0FFFFFF"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@id/checkboxLock4"
+        app:layout_constraintBottom_toBottomOf="@id/button4"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/boton4"
+        app:layout_constraintStart_toStartOf="@id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/boton3"
+        app:layout_constraintEnd_toEndOf="@id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/boton1"
+        app:layout_constraintEnd_toEndOf="@id/constraintLayout"
+        app:layout_constraintBottom_toBottomOf="@id/constraintLayout"
+        />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/boton2"
+        app:layout_constraintStart_toStartOf="@id/constraintLayout"
+        app:layout_constraintBottom_toBottomOf="@id/constraintLayout"
+        />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="#A0FFFFFF"
+        android:max="380"
+        android:progress="350"
+        app:layout_constraintEnd_toStartOf="@id/button3"
+        app:layout_constraintStart_toEndOf="@id/button4"
+        app:layout_constraintTop_toBottomOf="@id/editTextText" />
+
+    <TextView
+        android:id="@+id/editTextText"
+        android:longClickable="false"
+        android:clickable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFFFF"
+        android:textColor="#FF000000"
+        android:textSize="18sp"
+        android:ems="10"
+        android:text="Distancia ideal: 350m."
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="@id/textOverlay3"
+        app:layout_constraintEnd_toStartOf="@+id/textOverlay3"
+        app:layout_constraintStart_toEndOf="@+id/textOverlay4" />
+
+    <CheckBox
+        android:id="@+id/checkboxLockDistance"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:button="@null"
+        android:background="@drawable/sl_lock"
+        app:layout_constraintStart_toEndOf="@id/editTextText"
+        app:layout_constraintTop_toTopOf="@id/editTextText"
+        app:layout_constraintBottom_toBottomOf="@id/editTextText" />
+
+    <TextView
+        android:id="@+id/editTextText2"
+        android:longClickable="false"
+        android:clickable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="#FFFFFFFF"
+        android:inputType="text"
+        android:text="©IpeRomero 2023"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@id/constraintLayout"
+        app:layout_constraintEnd_toStartOf="@+id/textOverlay3"
+        app:layout_constraintStart_toEndOf="@+id/textOverlay4" />
+
+    <TextView
+        android:longClickable="false"
+        android:clickable="false"
+        android:id="@+id/precision"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFFFF"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:inputType="textMultiLine"
+        android:textAlignment="center"
+        android:textColor="#FFFF0000"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/seekBar" />
+
+    <TextView
+        android:id="@+id/sesgo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:background="#A0FFFFFF"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@id/centrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/centrar"
+        app:layout_constraintTop_toTopOf="@id/centrar" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
